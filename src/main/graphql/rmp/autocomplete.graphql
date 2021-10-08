@@ -1,0 +1,20 @@
+query NewSearchTeachersQuery(  $query: TeacherSearchQuery!) {
+    newSearch {
+        teachers(query: $query) {
+            edges {
+                cursor
+                node {
+                    id
+                    legacyId
+                    firstName
+                    lastName
+                    school {
+                        name
+                        id
+                    }
+                    department
+                }
+            }
+        }
+    }
+}

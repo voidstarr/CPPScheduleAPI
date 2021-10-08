@@ -1,4 +1,4 @@
-package com.cs4080.cppscheduleapi
+package com.broncomoredirect.api
 
 enum class ClassSubject {
     ABM, ACC, AG, AGS, AH, AHS, AMM, ANT, ARC, ARO, AST, AVS, BIO, BUS, CE, CHE, CHM, CHN, CIS, CLS, CM, COM, CPU, CRM, CS, DAN, EBZ, EC, ECE, ECI, ECS, EDD, EDL, EDU, EGR, EMT, ENG, ENV, ERA, ETE, ETM, EWS, FRE, FRL, FST, GBA, GEO, GER, GSC, HRT, HST, IAM, IBM, IE, IGE, IME, INA, IPC, KIN, LA, LIB, LRC, LS, MAT, ME, MFE, MHR, MPA, MSL, MTE, MU, NTR, PHL, PHY, PLS, PLT, PSY, RS, SCI, SE, SME, SOC, SPN, STA, STS, SW, TH, TOM, URP, VCD
@@ -205,16 +205,16 @@ fun buildSearchParams(
 }
 
 fun convertTerm(term: String?): String {
-    var value = 2187;
-    if (term == null) return value.toString();
+    var value = 2187
+    if (term == null) return value.toString()
 
     if (term[0].equals('f', true)) {
-        value += 10 * (term.substring(1..2).toInt() - 18);
+        value += 10 * (term.substring(1..2).toInt() - 18)
     } else if (term.substring(0..1).equals("Sp", true)) {
-        value += 10 * (term.substring(2..3).toInt() - 18) - 4;
+        value += 10 * (term.substring(2..3).toInt() - 18) - 4
     } else if (term.substring(0..1).equals("su", true)) {
-        value += 10 * (term.substring(2..3).toInt() - 18) - 6;
+        value += 10 * (term.substring(2..3).toInt() - 18) - 6
     }
 
-    return value.toString();
+    return value.toString()
 }

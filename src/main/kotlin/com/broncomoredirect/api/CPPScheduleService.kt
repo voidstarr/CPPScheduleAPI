@@ -1,4 +1,4 @@
-package com.cs4080.cppscheduleapi
+package com.broncomoredirect.api
 
 import com.gargoylesoftware.htmlunit.BrowserVersion
 import com.gargoylesoftware.htmlunit.WebClient
@@ -9,11 +9,11 @@ import org.springframework.stereotype.Service
 
 @Service
 class CPPScheduleService {
-    fun getSections(searchParameters: Map<String, String>): List<SectionDataDto> {//TODO
+    fun getSections(searchParameters: Map<String, String>): List<SectionDataDto> {
         val sectionList = ArrayList<SectionDataDto>()
         val webClient = WebClient(BrowserVersion.BEST_SUPPORTED)
-        webClient.options.isCssEnabled = false;
-        webClient.options.isJavaScriptEnabled = false;
+        webClient.options.isCssEnabled = false
+        webClient.options.isJavaScriptEnabled = false
         val searchPage = webClient.getPage<HtmlPage>("https://schedule.cpp.edu")
 
         searchParameters.forEach { searchPage.getElementById(it.key).setAttribute("value", it.value) }
