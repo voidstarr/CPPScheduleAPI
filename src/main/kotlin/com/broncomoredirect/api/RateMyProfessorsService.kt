@@ -48,13 +48,17 @@ class RateMyProfessorsService {
         val legacyId = searchResponse.data?.newSearch?.teachers?.edges?.get(0)?.node?.legacyId.toString()
         var teacherRatingPage = runBlocking { client.query(TeacherRatingsPageQuery(id)).execute() }.data?.node
 
-        return ProfessorRatingDto(
+        val rating = ProfessorRatingDto(
             professorFirst,
             professorLast,
             id,
             legacyId,
             teacherRatingPage?.asTeacher?.fragments?.featuredRatings_teacher?.avgRating.toString()
         )
+
+        println(rating)
+
+        return rating
     }
 }
 

@@ -205,11 +205,12 @@ fun buildSearchParams(
 }
 
 fun convertTerm(term: String?): String {
+    println(term)
     var value = 2187
     if (term == null) return value.toString()
 
-    if (term[0].equals('f', true)) {
-        value += 10 * (term.substring(1..2).toInt() - 18)
+    if (term.substring(0..1).equals("Fa", true)) {
+        value += 10 * (term.substring(2..3).toInt() - 18)
     } else if (term.substring(0..1).equals("Sp", true)) {
         value += 10 * (term.substring(2..3).toInt() - 18) - 4
     } else if (term.substring(0..1).equals("su", true)) {
